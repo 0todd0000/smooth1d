@@ -16,8 +16,8 @@ sim.set_noise_amp(0.05)
 # sim.set_filter('None')
 # sim.set_filter('Butterworth', params=dict(cutoff=2, order=2))
 # sim.set_filter('Autocorr', params=dict(order=2))
-# sim.set_filter('GCVSPL', params=dict(order=3))
-sim.set_filter('SSA', params=dict(window=25, ncomponents=2))
+sim.set_filter('GCVSPL', params=dict(m=3))
+# sim.set_filter('SSA', params=dict(window=25, ncomponents=2))
 sim.generate_noisy_sample()
 sim.generate_noisy_sample()
 sim.filter()
@@ -32,21 +32,6 @@ ax = pyplot.subplot(221);  ax.plot( t, y.T );   ax.set_title('Noisy data')
 ax = pyplot.subplot(222);  ax.plot( t, ys.T );  ax.set_title('Filtered data')
 pyplot.show()
 
-
-#
-#
-# #(1) Simulate one dataset, one set of parameters:
-# sim      = smooth1d.sim.Simulator()
-# sim.set_alpha(0.05)
-# sim.set_dataset_name('Vaughan1982')
-# sim.set_sample_size(5)
-# sim.set_noise_amp(0.20)
-# sim.set_filter('None')
-# sim.set_filter('Butterworth', params=dict(cutoff=5, order=2))
-# sim.simulate(3)
-# results = sim.get_results()
-# metrics = results.get_metrics()
-# print( metrics )
 
 
 
