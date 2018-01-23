@@ -1,5 +1,5 @@
 
-import os
+import os,pathlib
 import numpy as np
 from matplotlib import pyplot
 import smooth1d_plot as myplot
@@ -8,7 +8,8 @@ import smooth1d_plot as myplot
 
 #(1) Plot results for all datasets:
 filternum  = 4
-dir0       = '/Users/todd/DataProc/projects/smooth/results/filter%d/' %filternum
+dir0       = pathlib.Path(__file__).parents[2]
+dir0       = os.path.join(dir0, 'simulation_results')
 varnames   = ['h0reject', 'tstar', 'tmax', 'dmax', 'rmse', 'sample_size', 'noise_amp']
 windows    = [5, 10, 15]
 ncomp      = 3
@@ -20,7 +21,7 @@ for dataset in range(6):
 	H0         = []
 	for window in windows:
 	# for ncomp in ncomponents:
-		fnameNPZ   = dir0 + 'dataset%d_filter%d_window%d_ncomponents%d.npz' %(dataset,filternum,window,ncomp)
+		fnameNPZ   = os.path.join(dir0, 'filter%d'%filternum, 'dataset%d_filter%d_window%d_ncomponents%d.npz' %(dataset,filternum,window,ncomp))
 		with np.load(fnameNPZ) as Z:
 			h0,tstar,tmax,dmax,rmse,J,amp = [Z[s] for s in varnames]
 			### compute false positive rate as a function of sample size and amplitude:

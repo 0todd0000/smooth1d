@@ -1,4 +1,5 @@
 
+import os
 import time
 import smooth1d
 
@@ -26,7 +27,7 @@ for window in windows:
 		sim.set_dataset_name('Challis1999e')
 		sim.set_filter('SSA', params=dict(window=window, ncomponents=ncomp))
 		sim.set_metadata_labels(['sample_size','noise_amp'], types=[int,float])
-		sim.set_results_directory( '/Users/todd/DataProc/projects/smooth/results/' )
+		sim.set_results_directory( os.path.dirname(__file__) )
 		sim.set_seed()
 		
 		

@@ -1,4 +1,5 @@
 
+import os
 import time
 import smooth1d
 
@@ -24,7 +25,7 @@ for order in orders:
 	sim.set_dataset_name('Challis1999e')
 	sim.set_filter('Autocorr', params=dict(order=order))
 	sim.set_metadata_labels(['sample_size','noise_amp'], types=[int,float])
-	sim.set_results_directory( '/Users/todd/Dropbox/BIK/smooth/results171222/' )
+	sim.set_results_directory( os.path.dirname(__file__) )
 	sim.set_seed()
 	
 	

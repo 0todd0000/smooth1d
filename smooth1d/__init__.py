@@ -10,6 +10,8 @@ Low-pass filtering and systematic bias in analyses of one one-dimensional trajec
 Journal of Biomechanics.
 '''
 
+__version__ = 0.1   #2018.01.23
+
 from . import datasets
 from . import fwe
 from . import sim

@@ -1,8 +1,6 @@
 
-import os
 import numpy as np
 from matplotlib import pyplot
-import spm1d
 import smooth1d
 
 
