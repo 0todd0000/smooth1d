@@ -12,7 +12,7 @@ import smooth1d
 #(0) Check that Simulator is working properly:
 sim      = smooth1d.sim.Simulator()
 sim.set_alpha(0.05)
-sim.set_dataset_name('Twisk1994')
+sim.set_dataset_name('Vaughan1982')
 sim.set_sample_size(5)
 sim.set_noise_amp(0.05)
 # sim.set_filter('None')
@@ -40,7 +40,7 @@ pyplot.show()
 # #(1) Simulate one dataset, one set of parameters:
 # sim      = smooth1d.sim.Simulator()
 # sim.set_alpha(0.05)
-# sim.set_dataset_name('Twisk1994')
+# sim.set_dataset_name('Vaughan1982')
 # sim.set_sample_size(5)
 # sim.set_noise_amp(0.20)
 # sim.set_filter('None')

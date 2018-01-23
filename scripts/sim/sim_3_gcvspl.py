@@ -16,7 +16,7 @@ for order in orders:
 	
 	sim         = smooth1d.sim.Simulator()
 	sim.set_alpha(0.05)
-	# sim.set_dataset_name('Twisk1994')
+	# sim.set_dataset_name('Vaughan1982')
 	# sim.set_dataset_name('Challis1999a')
 	# sim.set_dataset_name('Challis1999b')
 	# sim.set_dataset_name('Challis1999c')

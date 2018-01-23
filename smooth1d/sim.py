@@ -75,7 +75,7 @@ class SimulationResults(object):
 
 class Simulator(object):
 	def __init__(self):
-		self.dataset_names   = 'Twisk1994', 'Challis1999a', 'Challis1999b', 'Challis1999c', 'Challis1999d', 'Challis1999e'
+		self.dataset_names   = 'Vaughan1982', 'Challis1999a', 'Challis1999b', 'Challis1999c', 'Challis1999d', 'Challis1999e'
 		self.filter_names    = 'None', 'Butterworth', 'Autocorr', 'GCVSPL', 'SSA'
 		self.J               = None   #sample size (number of continuum observations)
 		self.Q               = None   #number of continuum nodes
@@ -165,10 +165,10 @@ class Simulator(object):
 			assert isinstance(order, int) and (order>0), 'params["order"] must be an integer greater than zero'
 			self.filterfn     = lambda x: smooth.autocorr(x, order=order, time=self.t)
 		elif name is 'GCVSPL':
-			assert isinstance(params,dict) and (list(params.keys()) == ['order']), 'params must be a dictionary containing an "order" key'
-			order             = params['order']
-			assert isinstance(order, int) and (order>0), 'params["order"] must be an integer greater than zero'
-			self.filterfn     = lambda x: smooth.gcvspl(self.t, x, order=order)
+			assert isinstance(params,dict) and (list(params.keys()) == ['m']), 'params must be a dictionary containing an "m" (half-order) key'
+			m                 = params['m']
+			assert isinstance(m, int) and (m>0), 'params["m"] must be an integer greater than zero'
+			self.filterfn     = lambda x: smooth.gcvspl(self.t, x, m=m)
 		elif name is 'SSA':
 			assert isinstance(params,dict) and (list(params.keys()) == ['window','ncomponents']), 'params must be a dictionary containing an "order" key'
 			window            = params['window']

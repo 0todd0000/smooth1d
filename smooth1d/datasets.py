@@ -5,11 +5,15 @@ A collection of 1D datum continua for filtering performance evaluation.
 
 Datasets are taken from two sources:
 
-- Challis JH (1999). A procedure for the automatic determination of filter cutoff frequency for the processing of biomechanical data. Journal of Applied Biomechanics 15, 303-317.
+- Challis JH (1999). A procedure for the automatic determination of filter
+cutoff frequency for the processing of biomechanical data. Journal of
+Applied Biomechanics 15, 303-317.
 
-- Twisk D (1994):	https://isbweb.org/resources/software-resources/137-signal-processing-software/497-gcvspl-in-c-d-twisk
+- Vaughan CL (1982). Smoothing and differentiation of displacement-time
+data: an application of splines and digital filtering. International
+Journal of Bio-Medical Computing 13, 375–386.
 
-An additional null datum (zeros) is provided.
+An additional null datum (containing zeros) is provided.
 '''
 
 
@@ -24,7 +28,7 @@ dataset_names = ['Challis1999a',
 				'Challis1999d',
 				'Challis1999e',
 				'Null',
-				'Twisk1994']
+				'Vaughan1982']
 
 
 
@@ -101,15 +105,15 @@ class Null(_Dataset):
 
 
 
-class Twisk1994(_Dataset):
+class Vaughan1982(_Dataset):
 	'''
-	Data available in "gcvspl.c" by Dirk Twisk (1994):
-	https://isbweb.org/resources/software-resources/137-signal-processing-software/497-gcvspl-in-c-d-twisk
-	"gcvspl.c" downloaded from link above on 2017-10-15
-	No license was provided with the "gcvspl.c" software.
+	Data available in Vaughan (1982, p.379, Table 1,)
+	
+	Vaughan CL (1982). Smoothing and differentiation of displacement-time data: an application of splines and digital filtering. International Journal of Bio-Medical Computing 13, 375–386.
+
 	'''
 	def __init__(self):
-		self.author = 'Twisk'
+		self.author = 'Vaughan'
 		self.name   = None
 		self.year   = 1994
 		self.y      = np.array([1.770,1.757,1.748,1.740,1.726, 1.715,1.698,1.683,1.667,1.651,1.632,1.612,1.593,1.572,1.551,1.530,1.507,1.483,1.445,1.428,1.401,1.371,1.343,1.311,1.279,1.245,1.212,1.175,1.143,1.105,1.063,1.029,0.991,0.953,0.910,0.869,0.823,0.779,0.732,0.691,0.644,0.595,0.548,0.501,0.447,0.395,0.350,0.294,0.243,0.185])
@@ -236,7 +240,7 @@ class Challis1999E(_Challis1999):
 	
 
 
-dataset_classes = [Null, Twisk1994, Challis1999A, Challis1999B, Challis1999C, Challis1999D, Challis1999E]
+dataset_classes = [Null, Vaughan1982, Challis1999A, Challis1999B, Challis1999C, Challis1999D, Challis1999E]
 
 
 
@@ -255,8 +259,8 @@ def load(datasetname):
 		dataset = Challis1999D()
 	elif datasetname=='Challis1999e':
 		dataset = Challis1999E()
-	elif datasetname=='Twisk1994':
-		dataset = Twisk1994()
+	elif datasetname=='Vaughan1982':
+		dataset = Vaughan1982()
 	else:
 		raise( ValueError('Unknown dataset name: %s' %datasetname) )
 	t,y = dataset.get_data()

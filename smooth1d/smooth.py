@@ -149,7 +149,7 @@ def autocorr(y, order=2, time=None):
 
 
 
-def _gcvspl(x, y, order=2, library='gcvspl.so'):
+def _gcvspl(x, y, m=2, library='gcvspl.so'):
 	'''
 	Generalized cross-validatory spline filtering 
 	
@@ -193,7 +193,6 @@ def _gcvspl(x, y, order=2, library='gcvspl.so'):
 
 	wy    = 1.0
 	wx    = np.ones(NN)
-	m     = order
 	n     = NN
 	var   = -1.0
 	ier   = 0
@@ -209,7 +208,7 @@ def _gcvspl(x, y, order=2, library='gcvspl.so'):
 
 
 
-def gcvspl(x, y, order=3):
+def gcvspl(x, y, m=3):
 	'''
 	Generalized cross-validatory spline filtering 
 	
@@ -222,11 +221,24 @@ def gcvspl(x, y, order=3):
 	Reference:
 	
 	Craven P, Wahba G (1979). Smoothing noisy data with splines functions. Numerische Mathematik 31, 377–403.
+	
+	
+	INPUTS:
+	
+	*x* : 1D time vector ( (Q,) array )
+	
+	*y* : 1D measurement ( (Q,) array )
+	
+	*m* : half-order (int);  spline degree = (2*m - 1)
+	
+	OUTPUTS:
+	
+	*ys* : smoothed 1D measurement ( (J,Q) array )
 	'''
 	if y.ndim==2:
-		ys    = np.array([_gcvspl(x, yy, order) for yy in y])
+		ys    = np.array([_gcvspl(x, yy, m) for yy in y])
 	else:
-		ys    = _gcvspl(x, y, order)
+		ys    = _gcvspl(x, y, m)
 	return ys
 
 

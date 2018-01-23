@@ -18,7 +18,7 @@ The "dataset" variable should be one of:
 	Challis1999c
 	Challis1999d
 	Challis1999e
-	Twisk1994
+	Vaughan1982
 '''
 
 
@@ -27,7 +27,7 @@ import smooth1d
 
 
 
-dataset   = 'Challis1999b'
+dataset   = 'Vaughan1982'
 
 
 
