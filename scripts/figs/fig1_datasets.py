@@ -32,7 +32,7 @@ for i,(ax,dataset_class) in enumerate( zip(AX.flatten(),dataset_classes)):
 	h0 = ax.plot( t, yn.T, '0.7', lw=0.5)[0]
 	h1 = ax.plot( t, y, 'k', lw=3)[0]
 	if ax == AX[0,0]:
-		leg = ax.legend([h0,h1], ['Datum','Noisy sample'], loc='lower left', bbox_to_anchor=(0.05,0.15))
+		leg = ax.legend([h0,h1], ['Noisy sample','Datum'], loc='lower left', bbox_to_anchor=(0.05,0.15))
 		pyplot.setp(leg.get_texts(), name=fontname, size=8)
 	ax.set_title('Dataset %d (%s)' %(i+1, dataset.get_namep()), name=fontname, size=12 )
 	ax.set_xlabel('Time (s)', name=fontname, size=12)
