@@ -4,10 +4,10 @@ import numpy as np
 from matplotlib import pyplot
 import spm1d
 import smooth1d
-import smooth1d_plot as myplot
+import myplot
 
 
-# datasets   = 'Challis1999a', 'Challis1999b', 'Challis1999c', 'Challis1999d', 'Challis1999e', 'Vaughan1982'
+# datasets   = 'Challis1999a', 'Challis1999b', 'Challis1999c', 'Challis1999d', 'Challis1999e', 'Twisk1994'
 
 
 
@@ -106,7 +106,7 @@ AX[1,0].set_ylabel('Dependent variable', name=fontname, size=12)
 
 [ax.set_ylabel('t value', name=fontname, size=12)   for ax in AX[:,3]]
 [ax.set_xticklabels([])  for ax in AX[:2,1:].flatten()]
-[ax.text(0.5, 1.03, label, name=fontname, size=12, transform=ax.transAxes, ha='center')  for ax,label in zip([AX[1,0]] + list(AX[0,1:]),['Original Dataset','Filtered', 'Residuals', 'Hyothesis Test'])]
+[ax.text(0.5, 1.03, label, name=fontname, size=12, transform=ax.transAxes, ha='center')  for ax,label in zip([AX[1,0]] + list(AX[0,1:]),['Original Dataset','Filtered', 'Residuals', 'Hypothesis Test'])]
 
 
 ### label panels:
@@ -119,3 +119,4 @@ pyplot.setp([tx0]+tx1, name=fontname, size=12)
 pyplot.show()
 
 
+# pyplot.savefig('/Users/todd/Documents/Projects/projects/smooth/figs/results_example.pdf')
