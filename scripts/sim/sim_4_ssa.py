@@ -9,7 +9,7 @@ import smooth1d
 
 #(0) Simulate one dataset, multuple parameters:
 nIterations = 1000
-JJ          = [5, 6, 7, 8, 9, 10, 15, 20, 25, 30, 35, 45, 50]
+JJ          = [5, 6, 7, 8, 9, 10, 15, 20, 25, 30, 35, 45, 50] #sample sizes
 noise_amps  = [0.01, 0.20]
 windows     = [5, 10, 15, 20, 25]
 ncomponents = [2, 3, 4, 5]
